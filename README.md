@@ -65,12 +65,9 @@ El objetivo es modelar un taller automotriz de manera concurrente, asegurando:
 
 ## 📊 Diagramas de Flujo
 
-### 4.1 Flujo Principal del Taller (Diagrama General)
+### Flujo de Escalado Dinámico (UML Sequence)
 
-
-
-[Image of Diagrama de flujo.jpg]
-
+El siguiente diagrama de secuencia ilustra el proceso de asignación de trabajo y la respuesta del sistema ante la saturación.
 
 ### 4.2 Flujo de Escalado Dinámico (UML Sequence)
 
@@ -118,45 +115,6 @@ sequenceDiagram
             deactivate NewMec
         end
     end
----
-
-## 🛠️ Descripción Técnica
-
-### Componentes del Sistema
-
-| Componente | Mecanismo Go | Función Principal |
-| :--- | :--- | :--- |
-| **Vehículo** | `struct` | Unidad de trabajo, con campo para registrar `TiempoAtencion` y `EsPrioritario`. |
-| **Mecánico** | `goroutine` | Worker que atiende vehículos durante un tiempo simulado. Tiene una `Especialidad`. |
-| **Cola de Espera** | `channel` | Canal por el que fluyen los vehículos. Modeliza la cola de espera ilimitada. |
-| **Lógica de Escalado** | Función `gestionarEscalado` | Detecta el umbral de 15s y dispara la contratación de un nuevo `Mecánico`. |
-
-### Concurrencia y Escalado Dinámico
-
-* **Goroutines:** Cada `Mecánico` activo y la función `generadorDeVehiculos` corren como goroutines separadas.
-* **Channels:** El canal principal (`colaVehiculos`) gestiona la transferencia de trabajo.
-* **Contratación:** Cuando un vehículo escala, se llama a `contratarMecanicoDeEmergencia(especialidad)` para lanzar una nueva goroutine (`Mecánico`) con la especialidad requerida.
-* **Prioridad:** El vehículo escalado se reinserta en la cola con el flag `EsPrioritario = true`. Los mecánicos atienden a los prioritarios sin importar su especialidad.
-
-### Tiempos de Servicio y Umbral de Escalado
-
-| Incidencia | Tiempo de Atención Medio |
-| :--- | :--- |
-| **Mecánica** | 5 segundos |
-| **Eléctrica** | 7 segundos |
-| **Carrocería** | 11 segundos |
-
-**Umbral de Escalado:** Si un vehículo acumula **más de 15 segundos** de atención, se marca como prioritario y se dispara el mecanismo de contratación.
-
----
-
-## 📊 Diagramas de Flujo
-
-### Flujo de Escalado Dinámico (UML Sequence)
-
-El siguiente diagrama de secuencia ilustra el proceso de asignación de trabajo y la respuesta del sistema ante la saturación.
-
-
 
 ---
 
