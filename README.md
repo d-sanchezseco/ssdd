@@ -115,7 +115,7 @@ sequenceDiagram
             deactivate NewMec
         end
     end
-
+```
 ---
 
 ## 🧪 Resultados de las Pruebas
