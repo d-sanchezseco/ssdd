@@ -168,3 +168,10 @@ Mecanico David (ID: 1) listo para trabajar.
 >>> [REINGRESO] Vehículo SIM-4 reingresado a la cola con prioridad.
 ... [ATENCIÓN] Mecánico Emergencia-2 atendiendo SIM-4 (carroceria). Acumulado: 0s
 >>> [SALIDA] Vehículo SIM-4 finalizado. Tiempo total atención: 18s
+```
+---
+## 📂 Código Fuente
+
+El código completo de esta práctica se encuentra disponible en el siguiente repositorio:
+
+🔗 **https://github.com/d-sanchezseco/ssdd/tree/main/practica2**
