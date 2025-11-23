@@ -69,6 +69,11 @@ El objetivo es modelar un taller automotriz de manera concurrente, asegurando:
 
 El siguiente diagrama de secuencia ilustra el proceso de asignación de trabajo y la respuesta del sistema ante la saturación.
 
+<img width="5349" height="3946" alt="Untitled diagram-2025-11-23-222833" src="https://github.com/user-attachments/assets/b7bc377f-33be-4e82-8561-0fb92452f187" />
+
+
+
+
 ### 4.2 Flujo de Escalado Dinámico (UML Sequence)
 
 El siguiente diagrama de secuencia ilustra el proceso de asignación de trabajo y la respuesta del sistema ante la saturación.
